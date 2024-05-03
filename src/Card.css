@@ -1,0 +1,20 @@
+.starwars {
+    width: 25em;
+    height: 40em;
+    border-radius: 10px;
+    /* text-overflow: ellipsis; */
+}
+
+.text {
+    overflow-x: scroll;
+    /* text-overflow: ellipsis; */
+}
+
+img {
+    border-radius: 10px ;
+}
+
+p {
+    font-size: 1.1em;
+    
+}

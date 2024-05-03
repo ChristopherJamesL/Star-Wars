@@ -1,0 +1,9 @@
+@font-face {
+    font-family: myFont;
+    src:url(Starjedi.ttf);
+}
+
+h1 {
+   font-family: myFont; 
+}
+
