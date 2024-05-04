@@ -4,7 +4,7 @@ import Card from './Card.jsx';
 
 const CardList = ({ creatures } ) => {
     return (
-        <div className=' '>
+        <div>
             {
                 
                 creatures.map((character, i) => {

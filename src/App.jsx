@@ -13,7 +13,16 @@ class App extends Component {
             creatures: {
                 results: []
             },
-            searchfield: ''
+            homeworld:{
+                results: []
+            },
+            species: {
+                results: []
+            },
+            films: {
+                results: []
+            },
+            searchfield: '',
         }
         console.log('construct');
     }
@@ -29,10 +38,12 @@ class App extends Component {
         const [ planets, species, films ] = await Promise.all(urls.map(url => 
             fetch(url).then(resp => resp.json())
         ));
-        this.setState({ creatures: data });
+        this.setState({ creatures: data, homeworld: planets, species: species, films: films });
         console.log('componentDidMount')
         // this.setState({creatures.results.homeworld: planets });
-   }
+    }
+
+
 
 //        async componentDidMount() {
 //         const response = await fetch('https://swapi.py4e.com/api/people/');
@@ -71,7 +82,7 @@ class App extends Component {
             <div className='tc '>
                 <h1 className='f1 yellow'>Star Wars the Final Frontier</h1>
                 <Searchbox  searchChange={this.onSearchChange}/>
-                <CardList creatures={filteredCreatures}/>
+                <CardList creatures={filteredCreatures} />
             </div>
         );
     }
