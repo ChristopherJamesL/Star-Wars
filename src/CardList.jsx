@@ -27,13 +27,29 @@ const CardList = ({ creatures, homeworlds, races, films } ) => {
                             race = races.results[i].name;
                         }
                     }
+
+                    // let film = "";
+                    // for (let i = 0; i < films.results.length; i++) {
+                    //     for (let j = 0; j < character[i].films.length; i++) {
+                    //         if (character[i].films === films.results[i].url) {
+                    //             film += films.results[i].title;
+                    //         }
+                    //     }
+                    // }
+
+                    let film = "";
+                    for (let i = 0; i < films.results.length; i++) {
+                        if (character.films[i] === films.results[i].url) {
+                            film += films.results[i].title + ', ';
+                        }
+                    }
                     return (
                         <Card
                             key={i} 
                             name={character.name}
                             homeworld={planet}
                             species={race}
-                            films={character.films}
+                            films={film}
                         />
                     );
                 })

@@ -76,9 +76,12 @@ class App extends Component {
         const filteredCreatures = this.state.creatures.results.filter((creature) => {
             return creature.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
         })
-        const filmTitles = this.state.films.results.map((item) => {
-            return item.title;
-        })
+        // const filmTitle = this.state.films.results[i].films.map(item => {
+        //     return item.
+        // })
+        // const filmTitles = this.state.films.results.map((item) => {
+        //     return item.title;
+        // })
         console.log('render');
         return (
             <div className='tc '>
@@ -88,7 +91,7 @@ class App extends Component {
                     creatures={filteredCreatures} 
                     homeworlds={this.state.homeworld}
                     races={this.state.races}
-                    films={filmTitles}
+                    films={this.state.films}
                 />
             </div>
         );

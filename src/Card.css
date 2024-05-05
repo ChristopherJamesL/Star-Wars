@@ -6,7 +6,9 @@
 }
 
 .text {
+    width: 100%;
     overflow-x: scroll;
+    text-align: center;
     /* text-overflow: ellipsis; */
 }
 
