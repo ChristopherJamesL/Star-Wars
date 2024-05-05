@@ -39,49 +39,18 @@ class App extends Component {
         ));
         this.setState({ creatures: data, homeworld: planets, races: species, films: films });
         console.log('componentDidMount')
-        // this.setState({creatures.results.homeworld: planets });
     }
-
-
-
-//        async componentDidMount() {
-//         const response = await fetch('https://swapi.py4e.com/api/people/');
-//         const data = await response.json();
-//         this.setState({ creatures: data});
-//         console.log('componentDidMount')
-//    }   
-   
-    // componentDidMount() {
-    //     fetch('https://swapi.py4e.com/api/people/')
-    //         .then(response => {
-    //             return response.json();
-    //         })
-    //         .then(data => {
-    //             this.setState({ creatures: data })
-    //         });
-    // }
-    
-    // componentDidMount() {
-    //     this.setState({ creatures: creatures });
-    //     console.log('componentDidMount')
-    // }
 
     onSearchChange = (event) => {
         this.setState({ searchfield: event.target.value })
         
     }
     
-
-    render() {
+     render() {
         const filteredCreatures = this.state.creatures.results.filter((creature) => {
             return creature.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
         })
-        // const filmTitle = this.state.films.results[i].films.map(item => {
-        //     return item.
-        // })
-        // const filmTitles = this.state.films.results.map((item) => {
-        //     return item.title;
-        // })
+   
         console.log('render');
         return (
             <div className='tc '>
