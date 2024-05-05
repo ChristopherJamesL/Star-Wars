@@ -8,12 +8,7 @@ const CardList = ({ creatures, homeworlds, races, films } ) => {
             {
                 
                 creatures.map((character, i) => {
-                    // const planet = homeworlds.results.map(urls => {
-                    //     if (urls[i].url === character.homeworld) {
-                    //         planet = urls[i].name
-                    //         return planet;
-                    //     }
-                    // });
+                   
                     let planet = "";
                     for (let j = 0; j < homeworlds.results.length; j++) {
                       if (character.homeworld === homeworlds.results[j].url) {
@@ -37,12 +32,6 @@ const CardList = ({ creatures, homeworlds, races, films } ) => {
                         }
                     }
 
-                    // let film = "";
-                    // for (let i = 0; i < films.results.length; i++) {
-                    //     if (character.films[i] === films.results[i].url) {
-                    //         film += films.results[i].title + ', ';
-                    //     }
-                    // }
                     return (
                         <Card
                             key={i} 
