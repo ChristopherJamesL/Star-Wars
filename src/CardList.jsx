@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card.jsx';
 
 
-const CardList = ({ creatures, homeworlds, species, films } ) => {
+const CardList = ({ creatures, homeworlds, races, films } ) => {
     return (
         <div>
             {
@@ -13,7 +13,7 @@ const CardList = ({ creatures, homeworlds, species, films } ) => {
                     //         planet = urls[i].name
                     //         return planet;
                     //     }
-                // });
+                    // });
                     let planet = "";
                     for (let i = 0; i < homeworlds.results.length; i++) {
                       if (character.homeworld === homeworlds.results[i].url) {
@@ -21,12 +21,18 @@ const CardList = ({ creatures, homeworlds, species, films } ) => {
                       }
                     }
 
+                    let race = "";
+                    for (let i = 0; i < races.results.length; i++) {
+                        if (character.species === races.results[i].url) {
+                            race = races.results[i].name;
+                        }
+                    }
                     return (
                         <Card
                             key={i} 
                             name={character.name}
                             homeworld={planet}
-                            species={character.species}
+                            species={race}
                             films={character.films}
                         />
                     );

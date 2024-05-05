@@ -37,7 +37,7 @@ class App extends Component {
         const [ planets, species, films ] = await Promise.all(urls.map(url => 
             fetch(url).then(resp => resp.json())
         ));
-        this.setState({ creatures: data, homeworld: planets, species: species, films: films });
+        this.setState({ creatures: data, homeworld: planets, races: species, films: films });
         console.log('componentDidMount')
         // this.setState({creatures.results.homeworld: planets });
     }
@@ -87,7 +87,7 @@ class App extends Component {
                 <CardList 
                     creatures={filteredCreatures} 
                     homeworlds={this.state.homeworld}
-                    species={this.state.species}
+                    races={this.state.races}
                     films={filmTitles}
                 />
             </div>
