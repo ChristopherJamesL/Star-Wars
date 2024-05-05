@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Searchbox from './Searchbox.jsx';
 import CardList from './CardList';
-import { creatures } from './creatures.js';
 import './App.css';
 
 
@@ -77,12 +76,20 @@ class App extends Component {
         const filteredCreatures = this.state.creatures.results.filter((creature) => {
             return creature.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
         })
+        const filmTitles = this.state.films.results.map((item) => {
+            return item.title;
+        })
         console.log('render');
         return (
             <div className='tc '>
                 <h1 className='f1 yellow'>Star Wars the Final Frontier</h1>
                 <Searchbox  searchChange={this.onSearchChange}/>
-                <CardList creatures={filteredCreatures} />
+                <CardList 
+                    creatures={filteredCreatures} 
+                    homeworlds={this.homeworld}
+                    species={this.species}
+                    films={filmTitles}
+                />
             </div>
         );
     }

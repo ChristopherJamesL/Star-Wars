@@ -2,7 +2,7 @@ import React from 'react';
 import Card from './Card.jsx';
 
 
-const CardList = ({ creatures } ) => {
+const CardList = ({ creatures, homeworlds, species, films } ) => {
     return (
         <div>
             {
