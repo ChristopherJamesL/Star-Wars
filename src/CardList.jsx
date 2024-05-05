@@ -8,15 +8,16 @@ const CardList = ({ creatures, homeworlds, species, films } ) => {
             {
                 
                 creatures.map((character, i) => {
+                    const planet = homeworlds.results.map(urls => {
+                        if (urls[i].url === character.homeworld) {
+                            return homeworlds.results[i].name;
+                        }
+                    });
                     return (
                         <Card
                             key={i} 
                             name={character.name}
-                            homeworld={homeworlds.results[i].residents.map((resident) => {
-                                if (character.results[i].url === resident[i]) {
-                                    return homeworlds.results[i].name;        
-                                }
-                            })}
+                            homeworld={planet}
                             species={character.species}
                             films={character.films}
                         />
