@@ -10,7 +10,8 @@ const CardList = ({ creatures, homeworlds, species, films } ) => {
                 creatures.map((character, i) => {
                     const planet = homeworlds.results.map(urls => {
                         if (urls[i].url === character.homeworld) {
-                            return homeworlds.results[i].name;
+                            planet = urls[i].name
+                            return planet;
                         }
                     });
                     return (
