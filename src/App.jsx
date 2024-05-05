@@ -86,8 +86,8 @@ class App extends Component {
                 <Searchbox  searchChange={this.onSearchChange}/>
                 <CardList 
                     creatures={filteredCreatures} 
-                    homeworlds={this.homeworld}
-                    species={this.species}
+                    homeworlds={this.state.homeworld}
+                    species={this.state.species}
                     films={filmTitles}
                 />
             </div>
