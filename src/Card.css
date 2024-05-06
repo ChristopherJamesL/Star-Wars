@@ -7,9 +7,13 @@
 
 .text {
     width: 100%;
-    overflow-x: scroll;
+    /* overflow-y: scroll; */
     text-align: center;
     /* text-overflow: ellipsis; */
+}
+.films {
+    overflow-y: hidden;
+    
 }
 
 img {
