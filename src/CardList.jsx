@@ -33,6 +33,7 @@ const CardList = ({ creatures, homeworlds, races, films } ) => {
                             }
                         }
                     } 
+                    let filmComma = film.slice(0, -2);
                       
                     return (
                         <Card
@@ -40,7 +41,7 @@ const CardList = ({ creatures, homeworlds, races, films } ) => {
                             name={character.name}
                             homeworld={planet}
                             species={race}
-                            films={film}
+                            films={filmComma}
                         />
                     );
                 })
