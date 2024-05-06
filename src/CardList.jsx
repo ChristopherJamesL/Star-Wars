@@ -33,19 +33,7 @@ const CardList = ({ creatures, homeworlds, races, films } ) => {
                             }
                         }
                     }
-                    let filmComma = film.join(', ')
-                    
-                    
-
-                    // let film = "";
-                    // for (let a = 0; a < films.results.length; a++) {
-                    //     for (let b = 0; b < character.films.length; b++) {
-                    //         if (character.films[b] === films.results[a].url) {
-                    //                 film += films.results[a].title + ', ';
-                    //         }
-                    //     }
-                    // } 
-                    // let filmComma = film.slice(0, -2);
+                    film = film.join(', ')
                       
                     return (
                         <Card
@@ -53,7 +41,7 @@ const CardList = ({ creatures, homeworlds, races, films } ) => {
                             name={character.name}
                             homeworld={planet}
                             species={race}
-                            films={filmComma}
+                            films={film}
                         />
                     );
                 })
