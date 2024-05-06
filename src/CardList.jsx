@@ -24,16 +24,28 @@ const CardList = ({ creatures, homeworlds, races, films } ) => {
                             }
                         }
                     }
-
-                    let film = "";
+                
+                    let film = [];
                     for (let a = 0; a < films.results.length; a++) {
                         for (let b = 0; b < character.films.length; b++) {
                             if (character.films[b] === films.results[a].url) {
-                                    film += films.results[a].title + ', ';
+                                    film.push(films.results[a].title);
                             }
                         }
-                    } 
-                    let filmComma = film.slice(0, -2);
+                    }
+                    let filmComma = film.join(', ')
+                    
+                    
+
+                    // let film = "";
+                    // for (let a = 0; a < films.results.length; a++) {
+                    //     for (let b = 0; b < character.films.length; b++) {
+                    //         if (character.films[b] === films.results[a].url) {
+                    //                 film += films.results[a].title + ', ';
+                    //         }
+                    //     }
+                    // } 
+                    // let filmComma = film.slice(0, -2);
                       
                     return (
                         <Card
