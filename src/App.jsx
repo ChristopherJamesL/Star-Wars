@@ -36,8 +36,7 @@ class App extends Component {
                 const data = await res.json();
                 link = data.next;
                 results.push(...data.results);
-            } while (link);
-            creatures.results = results; 
+            } while (link); 
             return results;
         }
         
@@ -52,7 +51,7 @@ class App extends Component {
         const [ planets, species, films ] = await Promise.all(urls.map(url => 
             fetch(url).then(resp => resp.json())
         ));
-        this.setState({ creatures: {results: getData()}, homeworld: planets, races: species, films: films });
+        this.setState({ creatures: {results: await getData()}, homeworld: planets, races: species, films: films });
         console.log('componentDidMount')
     }
 
