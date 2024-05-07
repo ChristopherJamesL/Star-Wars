@@ -40,18 +40,50 @@ class App extends Component {
             return results;
         }
         
-
         const urls = [
             'https://swapi.py4e.com/api/planets/',
             'https://swapi.py4e.com/api/species/',
             'https://swapi.py4e.com/api/films/'   
         ];
+        
+        // const [ planets, species, films ] = async function getMoreData(urls) {
+        //     urls.map(url => {
+        //         const results = [];
+        //         let link = url;
+        //         do {
+        //             const res = await fetch(link);
+        //             const data = await res.json();
+        //             link = data.next;
+        //             results.push(...data.results);
+        //         } while (link);
+        //         return results;
+        //     })
+        // }
+
+        const [ planets, species, films ] = await Promise.all(urls.map(async function (url) {
+            const results = [];
+            let link = url;
+            do {
+                const res = await fetch(link);
+                const data = res.json();
+                link = data.next;
+                results.push(...data.results);
+            } while (link);
+            return results;
+        }))
+
+
         // const response = await fetch('https://swapi.py4e.com/api/people/');
         // const data = await response.json();
-        const [ planets, species, films ] = await Promise.all(urls.map(url => 
-            fetch(url).then(resp => resp.json())
-        ));
-        this.setState({ creatures: {results: await getData()}, homeworld: planets, races: species, films: films });
+        // const [ planets, species, films ] = await Promise.all(urls.map(url => 
+        //     fetch(url).then(resp => resp.json())
+        // ));
+        this.setState({ 
+                        creatures: {results: await getData()}, 
+                        homeworld: {results: planets}, 
+                        races: {results: species}, 
+                        films: {results: films} 
+                    });
         console.log('componentDidMount')
     }
 
