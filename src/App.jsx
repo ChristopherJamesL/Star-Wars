@@ -28,29 +28,31 @@ class App extends Component {
 
     async componentDidMount() {
 
-        // const getData = () => {
-        //     const results = [];
-        //     let link = 'https://swapi.py4e.com/api/people/';
-        //     do {
-        //         const res = await fetch(link);
-        //         const data = await res.json();
-        //         link = data.next;
-        //         results.push(...data.results);
-        //     } while (link) {
-        //         return results;
-        //     }
-        // }
+        const getData = () => {
+            const results = [];
+            let link = 'https://swapi.py4e.com/api/people/';
+            do {
+                const res = await fetch(link);
+                const data = await res.json();
+                link = data.next;
+                results.push(...data.results);
+            } while (link);
+            creatures.results = results; 
+            return results;
+        }
+        
+
         const urls = [
             'https://swapi.py4e.com/api/planets/',
             'https://swapi.py4e.com/api/species/',
             'https://swapi.py4e.com/api/films/'   
         ];
-        const response = await fetch('https://swapi.py4e.com/api/people/');
-        const data = await response.json();
+        // const response = await fetch('https://swapi.py4e.com/api/people/');
+        // const data = await response.json();
         const [ planets, species, films ] = await Promise.all(urls.map(url => 
             fetch(url).then(resp => resp.json())
         ));
-        this.setState({ creatures: data, homeworld: planets, races: species, films: films });
+        this.setState({ creatures: {results: getData()}, homeworld: planets, races: species, films: films });
         console.log('componentDidMount')
     }
 
