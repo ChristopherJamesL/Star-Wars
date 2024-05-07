@@ -28,7 +28,7 @@ class App extends Component {
 
     async componentDidMount() {
 
-        const getData = () => {
+         async function getData() {
             const results = [];
             let link = 'https://swapi.py4e.com/api/people/';
             do {
