@@ -27,6 +27,19 @@ class App extends Component {
     }
 
     async componentDidMount() {
+
+        // const getData = () => {
+        //     const results = [];
+        //     let link = 'https://swapi.py4e.com/api/people/';
+        //     do {
+        //         const res = await fetch(link);
+        //         const data = await res.json();
+        //         link = data.next;
+        //         results.push(...data.results);
+        //     } while (link) {
+        //         return results;
+        //     }
+        // }
         const urls = [
             'https://swapi.py4e.com/api/planets/',
             'https://swapi.py4e.com/api/species/',
